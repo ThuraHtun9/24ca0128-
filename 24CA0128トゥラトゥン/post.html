@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "ja">
+    <head>
+        <meta charset = "UTF-8">
+        <title>post html</title>
+        <link rel="stylesheet" href="mycss.css">
+    </head>
+    <body>
+        <h1>掲 示 板</h1>
+        <h2>- POST -</h2>
+        <form method = "POST" action = "postservlet">
+            <label>
+                名前 : <input type = "text" name = "name"><br>
+                性別 : <input type = "radio" name = "sex" value = "Male">Male
+                       <input type = "radio" name = "sex" value = "Female">Female
+                       <input type = "radio" name = "sex" value = "Other">Other<br>
+                       <br>
+                <textarea name = "message" rows = 8 cols = 64></textarea><br>
+                文字サイズ : <select name = "fontSize">
+                    <option value = "large">大</option>
+                    <option value = "medium">普通</option>
+                    <option value = "small">小</option>
+                </select>
+                文字の太さ : <select name = "fontWeight">
+                    <option value = "700">bold</option>
+                    <option value = "400">normal</option>
+                    <option value = "300">thin</option>
+                </select>
+                文字色 : <input type = "color" name = "fontColor">
+                <br>
+                <br>
+                <button type = "submit">投稿</button>
+            </label>
+        </form>
+        <br>
+        <a href = "index.html">メニューに戻る</a>
+        <footer>
+            <p>Copyright &copy; トゥラトゥン(24CA0128), All Rights Reserved.<span>&reg;</span></p>
+        </footer>
+    </body>
+</html>
