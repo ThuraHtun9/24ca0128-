@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>24CA0128_トゥラトゥン</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="headband">Canvas <b>Original Drawing Webpage</b></div>
+        <div class="subheadband">手書、図形、レイヤ、オーバーレイ、プレビュー付き</div>
+    </header>
+    <main>
+        <aside class="paneltools" aria-label="tools">
+            <div class="rowtools">
+                <button onclick="setMode('draw')">ペン</button>
+                <button onclick="setMode('erase')">消しゴム</button>
+                <button onclick="setMode('line')">直線</button>
+                <button onclick="setMode('rect')">四角</button>
+                <button onclick="setMode('circle')">〇 円</button>
+                <button onclick="clearCanvas()">全部消す</button>
+            </div>
+            <div class="section">
+                <label>色 (カラーパレット)</label>
+                <div class="row">
+                    <input id="color" type="color" value = "#ffffff" >
+                    <button class="btn" id="eyedrop" title="スポイトで取得 (I)">スポイト</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <label>線の太さ: <span id="wVal">3</span> px</label>
+                <input id="width" type="range" min="1" max="60" value="3" />
+            </div>
+
+            <div class="section">
+                <label>塗り / 枠線</label>
+                <select id="fillMode">
+                    <option value="stroke">枠線のみ</option>
+                    <option value="fill">塗りつぶし</option>
+                    <option value="both">塗り + 枠線</option>
+                </select>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <button class="btn" id="undo" title="元に戻す (Ctrl+Z)">↶ Undo</button>
+                    <button class="btn" id="redo" title="やり直し (Ctrl+Shift+Z)">↷ Redo</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <button class="btn" id="save" title="PNGとして保存">PNG保存</button>
+                    <label class="btn" for="upload" title="画像を読み込み">画像読込<input id="upload" type="file"
+                            accept="image/*" style="display:none"></label>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <button class="btn toggle" id="gridToggle" aria-pressed="false" title="方眼を表示/非表示 (G)">#
+                        グリッド</button>
+                    <button class="btn danger block" id="clear" title="全消去 (C)">全消去</button>
+                </div>
+            </div>
+
+            <div class="section" style="font-size:12px;color:var(--muted)">
+                <div>ショートカット: <span class="kbd">P</span> <span class="kbd">E</span> <span class="kbd">L</span> <span
+                        class="kbd">R</span> <span class="kbd">O</span> <span class="kbd">G</span> <span
+                        class="kbd">C</span></div>
+                <div>Undo: <span class="kbd">Ctrl</span> + <span class="kbd">Z</span> / Redo: <span
+                        class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">Z</span></div>
+            </div>
+        </aside>
+        <section class="panelstage">
+            <div class="stage-header">
+                <div>描画エリア (1200 x 800)</div>
+                <div id="cursorInfo" style="font-variant-numeric:tabular-nums;color:var(--muted)">x: -, y: -</div>
+            </div>
+            <div class="stage-wrap">
+                <canvas id="grid" width="1200" height="800" aria-label="グリッドキャンバス"></canvas>
+                <!-- メイン描画キャンバス（履歴を保持） -->
+                <canvas id="draw" width="1200" height="800" aria-label="メインキャンバス"></canvas>
+                <!-- オーバーレイ（図形のプレビューやガイド線） -->
+                <canvas id="overlay" width="1200" height="800" aria-label="オーバーレイキャンバス"></canvas>
+            </div>
+        </section>
+
+        <!-- 右: プレビューなど別canvas -->
+        <aside class="panel right" aria-label="プレビュー">
+            <div class="thumb">
+                <header>サムネイル(自動縮小プレビュー)</header>
+                <canvas id="thumb" width="600" height="400"></canvas>
+            </div>
+            <div class="thumb">
+                <header>ブラシプレビュー</header>
+                <canvas id="brushView" width="220" height="120"></canvas>
+            </div>
+        </aside>
+    </main>
+    <footer>
+        <p>Copy &copy; 2025 Thura Htun (24CA0128), All rights reserved &reg;</p>
+    </footer>
+    <script src = "Canvas.js"></script>
+</body>
+</html>
