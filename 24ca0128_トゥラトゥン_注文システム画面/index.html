@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order System</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1 class="welcome">いらっしゃいませ</h1>
+    <div class="menu">
+        <div class="flip-container" id="drinkFlip">
+            <h2 class="title">Drinks</h2>
+            <div class="flipper">
+                <div class="front">
+                    <button id="drinkBtn" class="menu-button">
+                        <img src="images/drink/Drink.jpg" alt="Drink Menu">
+                    </button>
+                </div>
+                <div class="back">
+                    <div id="drinkMenu" class="menu-panel"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-container" id="dessertsFlip">
+            <h2 class="title">Desserts</h2>
+            <div class="flipper">
+                <div class="front">
+                    <button id="dessertsBtn" class="menu-button">
+                        <img src="images/desserts/Dessert.jpg" alt="Dessert Menu">
+                    </button>
+                </div>
+                <div class="back">
+                    <div id="dessertsMenu" class="menu-panel"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="order_bill">
+        <button id="order_button">注文する</button>
+        <button id="bill_button">会計</button>
+    </div>
+
+    <div class="can">
+        <button id="cancel_button">キャンセルする</button>
+    </div>
+
+    <div id="history">
+        <h2>注文履歴</h2>
+        <ul id="historyList"></ul>
+    </div>
+
+    <footer>
+        <p>Copy &copy; 2025 Thura Htun (24CA0128), All rights reserved &reg;</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
